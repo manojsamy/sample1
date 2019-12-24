@@ -15,11 +15,11 @@ spec:
         - name: wildfly
           image: jboss/wildfly
           ports:
-            - name: sample
+            - name: normaluser
               containerPort: 8080
             - name: admin
               containerPort: 9990
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: app
