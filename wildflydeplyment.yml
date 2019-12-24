@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wildfly
+  labels:
+    app: app
+spec:
+  template:
+    metadata:
+      name: wildfly
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: wildfly
+          image: jboss/wildfly
+          ports:
+            - name: normal
+              containerPort: 8080
+            - name: admin
+              containerPort: 9990
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
